@@ -2,14 +2,16 @@ import RetailItem
 
 class CashResister:
 
-    def __init__(self, item):
+    # Initializing
+    def __init__(self):
         self.__item_list = []
-        self.item = item
 
-    def purchace_item(self):
-        self.__item_list.append(self.item)
+    # Add items to the item_list
+    def purchace_item(self, retail):
+        self.__item_list.append(retail)
         print("The Item Is Added To The List")
 
+    # Return total price
     def get_total(self):
         total = 0
 
@@ -18,16 +20,18 @@ class CashResister:
 
         return total
 
+    # Showing purchaced item and Total price
     def show_items(self):
 
         for retail in self.__item_list:
-            print(retail.get_item)
-            print(retail.get_units)
-            print(retail.get_price)
+            print(retail.get_item() + " " + str(retail.get_units()) + " " + str(retail.get_price()))
 
+        print("Total: " + str(self.get_total()))
 
+    # Remove items from list
     def clear(self):
-        self.__item_list.remove(self.item)
+        for retail in  self.__item_list:
+            self.__item_list.remove(retail)
 
 if __name__ == '__main__':
     item1 = RetailItem.retail()
@@ -46,16 +50,11 @@ if __name__ == '__main__':
     item3.set_units(20)
     item3.set_price(24.95)
 
-    resister1 = CashResister(item1)
-    resister1.purchace_item()
+    resister = CashResister()
 
-    resister2 = CashResister(item2)
-    resister2.purchace_item()
+    resister.purchace_item(item1)
+    resister.purchace_item(item2)
+    resister.purchace_item(item3)
 
-    resister3 = CashResister(item3)
-    resister3.purchace_item()
-
-    resister1.show_items()
-    resister2.show_items()
-    resister3.show_items()
+    resister.show_items()
 

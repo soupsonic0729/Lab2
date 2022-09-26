@@ -49,7 +49,3 @@ r3 = RetailItem()
 r3.set_item("Shirt")
 r3.set_units(20)
 r3.set_price(24.95)
-
-print(r1.get_item())
-print(r1.get_units())
-print(r1.get_price())
